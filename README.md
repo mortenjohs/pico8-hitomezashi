@@ -14,3 +14,7 @@ Inspired by https://www.youtube.com/watch?v=JbfhzlMk2eY and https://github.com/j
 - Press left/right to remove/add noise. (Random bitshifts.)
 - Press 'x' to get a new random tile size
 - Press 'c' to get a new grid
+
+## Demo
+
+![GIF](hitomezashi.gif)
