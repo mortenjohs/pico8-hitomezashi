@@ -18,37 +18,37 @@ end
 
 function _update()
  
-	if np > 0 then
-	 for y=1,#ys do
-	  ys[y]=(ys[y]+noise(np))%2
-		end
-		for x=1,#xs do
-	  xs[x]=(xs[x]+noise(np))%2
-	 end
-	end
+ if np > 0 then
+  for y=1,#ys do
+   ys[y]=(ys[y]+noise(np))%2
+  end
+  for x=1,#xs do
+   xs[x]=(xs[x]+noise(np))%2
+  end
+ end
 
  ys = tween(ys,eys)
  xs = tween(xs,exs)
 
  if btnp(4) then
-		exs  = rbits(128/ts)
- 	eys  = rbits(128/ts)
+  exs  = rbits(128/ts)
+  eys  = rbits(128/ts)
  end
  if btnp(0) then
   if np == 0 then 
    np = 16384
   else 
- 		np = max(1,min(np,16383))*2
- 	end
+   np = max(1,min(np,16383))*2
+  end
  end
  if btnp(1) then
-		np = flr(np/2)
+  np = flr(np/2)
  end
  if btnp(2) then
-		col = (col+1)%16
+  col = (col+1)%16
  end
  if btnp(3) then
-		col = (col-1+16)%16
+  col = (col-1+16)%16
  end
  if btnp(5) then
   ts = 2^(1+flr(rnd(6)))
@@ -86,21 +86,21 @@ end
 -->8
 -- draw functions
 function draw_grid(xs,ys)
-	for y=1,#ys do
-		for x=1,#xs do
-		 if xs[x] != nil and (xs[x]+y)%2!=0 then
-				line(x*ts,(y-1)*ts,x*ts,y*ts,col)
-			end
-			if ys[y] != nil and ((ys[y]+x)%2)!=0 then
- 			line((x-1)*ts,y*ts,x*ts,y*ts,col)	
- 		end
-		end
-	end
+ for y=1,#ys do
+  for x=1,#xs do
+   if xs[x] != nil and (xs[x]+y)%2!=0 then
+    line(x*ts,(y-1)*ts,x*ts,y*ts,col)
+   end
+   if ys[y] != nil and ((ys[y]+x)%2)!=0 then
+    line((x-1)*ts,y*ts,x*ts,y*ts,col) 
+   end
+  end
+ end
 end
 
 -->8
 function init_grid(ts)
-	xs  = rbits(128/ts) // bit pattern
+ xs  = rbits(128/ts) // bit pattern
  ys  = rbits(128/ts) // bit pattern
  exs = xs
  eys = ys
